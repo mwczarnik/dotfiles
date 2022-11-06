@@ -1,0 +1,49 @@
+[/]
+default='ba5c7d57-1702-45bb-83e3-44347ebbd521'
+list=['2edb37bf-7020-46bc-92a9-d7b516e532c8', 'ba5c7d57-1702-45bb-83e3-44347ebbd521', 'd00ac8f1-fe60-4328-9e47-d0cf592a44c9']
+
+[:2edb37bf-7020-46bc-92a9-d7b516e532c8]
+audible-bell=false
+background-color='rgb(0,0,0)'
+font='Fira Code Medium 15'
+foreground-color='rgb(255,255,255)'
+use-system-font=false
+use-theme-colors=false
+visible-name='def'
+
+[:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+audible-bell=false
+font='Fira Code Medium 14'
+use-system-font=false
+use-theme-colors=false
+
+[:ba5c7d57-1702-45bb-83e3-44347ebbd521]
+allow-bold=true
+audible-bell=false
+background-color='#1E1E28282C2C'
+bold-color='#C3C3C7C7D1D1'
+bold-color-same-as-fg=true
+bold-is-bright=false
+cursor-background-color='#65657B7B8383'
+cursor-colors-set=true
+cursor-foreground-color='#1E1E28282C2C'
+font='Fira Code weight=453 15.5'
+foreground-color='#C3C3C7C7D1D1'
+highlight-colors-set=false
+palette=['rgb(46,52,54)', 'rgb(204,0,0)', 'rgb(78,154,6)', 'rgb(196,160,0)', 'rgb(52,101,164)', 'rgb(117,80,123)', 'rgb(6,152,154)', 'rgb(211,215,207)', 'rgb(85,87,83)', 'rgb(239,41,41)', 'rgb(138,226,52)', 'rgb(252,233,79)', 'rgb(114,159,207)', 'rgb(173,127,168)', 'rgb(52,226,226)', 'rgb(238,238,236)']
+scroll-on-output=true
+scrollback-lines=1000000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=false
+visible-name='Material'
+
+[:d00ac8f1-fe60-4328-9e47-d0cf592a44c9]
+audible-bell=false
+background-color='rgb(46,52,54)'
+foreground-color='rgb(211,215,207)'
+palette=['rgb(0,0,0)', 'rgb(205,0,0)', 'rgb(0,205,0)', 'rgb(205,205,0)', 'rgb(0,0,238)', 'rgb(205,0,205)', 'rgb(0,205,205)', 'rgb(229,229,229)', 'rgb(127,127,127)', 'rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(255,255,0)', 'rgb(92,92,255)', 'rgb(255,0,255)', 'rgb(0,255,255)', 'rgb(255,255,255)']
+use-theme-colors=false
+visible-name='ocean'
