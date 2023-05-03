@@ -119,8 +119,11 @@ complete -C /usr/bin/terraform terraform
 complete -C /usr/bin/packer packer
 
 #K8s
+#kubectl config set-cluster talos-vbox-cluster --insecure-skip-tls-verify=true
 source <(kubectl completion bash)
 source <(helm completion bash)
+alias k=kubectl
+complete -o default -F __start_kubectl k
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
