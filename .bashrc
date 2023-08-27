@@ -47,14 +47,12 @@ fi
 #################################PERSONAL SETUP####################################################
 
 #VARIABLES AND ALIASES
-#export PS1="\e[1;35m[\e[m\e[01;36m\u@\e[01;36m\h\e[m \e[01;33m\W\e[m\e[1;35m]\e[m\e[01;37m\$\e[m "
-#export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[01;33m\]@\[\033[01;35m\]\h\[\033[00m\][\[\033[01;32m\]\W\[\033[00m\]]\$ '
-
 HISTCONTROL=ignoreboth
 HISTSIZE=
 HISTFILESIZE=
 
-export PS1='\[\033[37m\]┌─${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\n\[\033[37m\]└─\[\033[01;92m\]\$\[\033[00m\] '
+export PS1='\[\033[37m\]┌─${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\[\033[01;00m\] \t \n\[\033[37m\]└─\[\033[01;92m\]\$\[\033[00m\] '
+
 export PATH=$PATH:/usr/sbin:/usr/local/bin/:$HOME/.local/bin:/usr/local/go/bin
 export VISUAL=nvim
 export EDITOR="$VISUAL"
@@ -79,8 +77,6 @@ function set-env() {
     set +a
 }
 
-#alias f_sync ='rsync -vrPacu /media/veracrypt1/coding_stuff /coding_stuff/'
-
 
 #TMUX ON TERMINAL STARTUP
 session_name=$USER
@@ -96,7 +92,7 @@ if [[ '1' == $IF_VSCODE ]]; then
 
     # Create the session if it doesn't exists.
     if [[ $? -ne 0 ]]; then
-      TMUX='' tmux new-session -d -s "$session_name"
+      TMUX='' tmux new-session -d -s "$session_name"  glances
     fi
 
     # Attach if outside of tmux, switch if you're in tmux.
@@ -128,10 +124,4 @@ complete -o default -F __start_kubectl k
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-
-#if [ -z "$SSH_AUTH_SOCK" ] ; then
-#    eval `ssh-agent -s`
-#    ssh-add
-#fi
-
-#. "$HOME/.cargo/env"
+HOSTNAME="$(/usr/bin/hostname 2>/dev/null)"
