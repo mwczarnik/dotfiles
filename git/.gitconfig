@@ -1,0 +1,19 @@
+[user]
+	email = maciek.czarn@gmail.com
+	name = mwczarnik
+[credential]
+	helper = store
+[init]
+	defaultBranch = master
+[alias]
+	amend-no-edit = commit --amend --no-edit
+	amend-all-no-edit = commit --all --amend --no-edit
+    push-current  = push -u origin HEAD
+    push-current-with-force  = push -u origin HEAD --force-with-lease
+    search-branch = "! f() { git branch  | grep \"$1\" ;}; f"
+    switch-by-match =  "! f() { git branch | grep \"$1\" | head -n1 | xargs -I{} git switch {} ; }; f "
+    current-branch = rev-parse --abbrev-ref HEAD
+	st = status
+    logo = log --oneline
+[pull]
+	rebase = true
