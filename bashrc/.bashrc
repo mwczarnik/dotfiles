@@ -149,7 +149,7 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo $$ $USER "$(history 
 # cli cluster prompt 
 source ${HOME}/.kube-ps1/kube-ps1.sh
 
-export PS1='\[\033[37m\]┌─${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\[\033[01;00m\] \t $(kube_ps1) \n\[\033[37m\]└─\[\033[01;92m\]\$\[\033[00m\] '
+export PS1='\[\033[37m\]┏\[\033[01;92m\]⭘ ${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u \[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\[\033[01;00m\] \t $(kube_ps1) \n\[\033[37m\]┗\[\033[01;92m\]❱\[\033[00m\] '
 
 export PATH=$PATH:/usr/sbin:/usr/local/bin/:$HOME/.local/bin:/usr/local/go/bin:/usr/local/bin/:${HOME}/.gopath/bin:${HOME}/.pixi/bin
 export VISUAL=nvim
@@ -209,7 +209,8 @@ fi
 if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     GIT_PROMPT_THEME="Custom"
-    GIT_PROMPT_THEME_FILE=${HOME}/.config/bash_git_prompt/bash_git_prompt.bgptheme
+    GIT_PROMPT_THEME_FILE=${HOME}/.config/bash_git_prompt/custom.bgptheme
+    GIT_PROMPT_START=" _LAST_COMMAND_INDICATOR_"
     GIT_PROMPT_END="\n${PS1}"
 
     source $HOME/.bash-git-prompt/gitprompt.sh
