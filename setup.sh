@@ -1,11 +1,10 @@
 #!/bin/bash
-HOME_DIR='/home/user'
 
-stow -t ${HOME_DIR} bashrc
-stow -t ${HOME_DIR} ranger
-stow -t ${HOME_DIR} tmux
-stow -t ${HOME_DIR} git
-stow -t ${HOME_DIR} nvim
-stow -t ${HOME_DIR} kitty
-stow -t ${HOME_DIR} yazi
-stow -t ${HOME_DIR} bash_git_prompt
+stow -t ${HOME} bashrc
+stow -t ${HOME} ranger
+stow -t ${HOME} tmux
+stow -t ${HOME} git
+stow -t ${HOME} nvim
+stow -t ${HOME} kitty
+stow -t ${HOME} yazi
+stow -t ${HOME} bash_git_prompt

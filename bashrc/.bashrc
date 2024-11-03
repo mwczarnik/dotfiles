@@ -146,11 +146,12 @@ HISTFILESIZE=
 #export HISTTIMEFORMAT="%s "
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo $$ $USER "$(history 1)" >> ~/.bash_eternal_history'
 
-export PS1='\[\033[37m\]┌─${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\[\033[01;00m\] \t \n\[\033[37m\]└─\[\033[01;92m\]➤\[\033[00m\] '
-#export PS1='\[\033[37m\]┌─${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\[\033[01;00m\] \t \n\[\033[37m\]└─\[\033[01;92m\]\$\[\033[00m\] '
-#export PS1='\[\033[37m\]${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\[\033[01;00m\] \t \n\[\033[01;92m\]➤\[\033[00m\] '
+# cli cluster prompt 
+source ${HOME}/.kube-ps1/kube-ps1.sh
 
-export PATH=$PATH:/usr/sbin:/usr/local/bin/:$HOME/.local/bin:/usr/local/go/bin
+export PS1='\[\033[37m\]┌─${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\[\033[01;00m\] \t $(kube_ps1) \n\[\033[37m\]└─\[\033[01;92m\]\$\[\033[00m\] '
+
+export PATH=$PATH:/usr/sbin:/usr/local/bin/:$HOME/.local/bin:/usr/local/go/bin:/usr/local/bin/:${HOME}/.gopath/bin:${HOME}/.pixi/bin
 export VISUAL=nvim
 export EDITOR=nvim
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
@@ -215,16 +216,22 @@ if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
 fi
 
 # Hashicorp
-complete -C /usr/bin/terraform terraform
+complete -C /usr/local/bin/terraform terraform
+#complete -C /usr/bin/terraform terraform
 complete -C /usr/bin/packer packer
 
 #K8S
 #kubectl config set-cluster talos-vbox-cluster --insecure-skip-tls-verify=true
 source <(kubectl completion bash)
 source <(helm completion bash)
+source <(flux completion bash)
+source <(stern --completion bash)
+
 alias k=kubectl
 complete -o default -F __start_kubectl k
 
+# minio client completion
+complete -C ${HOME}/.gopath/bin/mc mc
 
 # User specific environment and startup programs
 . "$HOME/.cargo/env"
@@ -239,3 +246,5 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+#Direnv config 
+eval "$(direnv hook bash)"
