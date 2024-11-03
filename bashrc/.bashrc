@@ -146,11 +146,14 @@ HISTFILESIZE=
 #export HISTTIMEFORMAT="%s "
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo $$ $USER "$(history 1)" >> ~/.bash_eternal_history'
 
-export PS1='\[\033[37m\]┌─${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\[\033[01;00m\] \t \n\[\033[37m\]└─\[\033[01;92m\]\$\[\033[00m\] '
+export PS1='\[\033[37m\]┌─${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\[\033[01;00m\] \t \n\[\033[37m\]└─\[\033[01;92m\]➤\[\033[00m\] '
+#export PS1='\[\033[37m\]┌─${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\[\033[01;00m\] \t \n\[\033[37m\]└─\[\033[01;92m\]\$\[\033[00m\] '
+#export PS1='\[\033[37m\]${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\[\033[01;00m\] \t \n\[\033[01;92m\]➤\[\033[00m\] '
 
 export PATH=$PATH:/usr/sbin:/usr/local/bin/:$HOME/.local/bin:/usr/local/go/bin
 export VISUAL=nvim
-export EDITOR="$VISUAL"
+export EDITOR=nvim
+export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 
 #APPS variables
 export VAGRANT_DEFAULT_PROVIDER="libvirt"
@@ -204,6 +207,10 @@ fi
 # GIT CONFIG
 if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
+    GIT_PROMPT_THEME="Custom"
+    GIT_PROMPT_THEME_FILE=${HOME}/.config/bash_git_prompt/bash_git_prompt.bgptheme
+    GIT_PROMPT_END="\n${PS1}"
+
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 
@@ -217,4 +224,18 @@ source <(kubectl completion bash)
 source <(helm completion bash)
 alias k=kubectl
 complete -o default -F __start_kubectl k
+
+
+# User specific environment and startup programs
+. "$HOME/.cargo/env"
+
+# Yazi 
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 

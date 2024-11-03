@@ -1,0 +1,22 @@
+powerline 
+neovim 
+glances
+vimplug
+wl-clipboard
+font-firacode  or nerd font firacode https://www.nerdfonts.com/font-downloads
+fd-find - https://github.com/sharkdp/fd
+ripgrep - https://github.com/BurntSushi/ripgrep
+yazi 
+kitty
+stow 
+tmux
+starship 
+bash-git-prompt
+rust/cargo
+
+
+helm
+kubectl
+terraform
+packer
+vscode
