@@ -171,6 +171,8 @@ alias l='ls -CFl'
 #alias set-env="set -a; . $1 ;set +a"
 alias vim='nvim'
 alias vi='nvim'
+alias sudo='sudo --preserve-env=PATH env'
+alias home-manager='home-manager --impure' # to be able to use ~ path in dotfiles
 
 function set-env() {
     set -a
@@ -249,3 +251,9 @@ function y() {
 
 #Direnv config 
 eval "$(direnv hook bash)"
+
+function hm() {
+    echo 'Start Nix home-manager'
+    nix run home-manager/release-24.05 -- init --switch
+}
+
