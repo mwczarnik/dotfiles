@@ -24,6 +24,7 @@
     pkgs.kubernetes-helm
     pkgs.stern
     pkgs.fluxcd
+    pkgs.argocd
     pkgs.terraform
     pkgs.packer
     pkgs.ansible
