@@ -71,17 +71,17 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".bashrc".source                 = ~/.dotfiles/configs/bashrc/.bashrc;
-    ".inputrc".source                = ~/.dotfiles/configs/bashrc/.inputrc;
-    ".tmux.conf".source              = ~/.dotfiles/configs/tmux/.tmux.conf;
-    ".tmuxline.conf".source          = ~/.dotfiles/configs/tmux/.tmuxline.conf;
-    ".gitconfig".source              = ~/.dotfiles/configs/git/.gitconfig;
+    ".bashrc".source                 = configs/bashrc/.bashrc;
+    ".inputrc".source                = configs/bashrc/.inputrc;
+    ".tmux.conf".source              = configs/tmux/.tmux.conf;
+    ".tmuxline.conf".source          = configs/tmux/.tmuxline.conf;
+    ".gitconfig".source              = configs/git/.gitconfig;
 
-    ".config/yazi".source            = ~/.dotfiles/configs/yazi;
-    ".config/nvim".source            = ~/.dotfiles/configs/nvim;
-    ".config/kitty".source           = ~/.dotfiles/configs/kitty;
-    ".config/ranger".source          = ~/.dotfiles/configs/ranger;
-    ".config/bash_git_prompt".source = ~/.dotfiles/configs/bash_git_prompt;
+    ".config/yazi".source            = configs/yazi;
+    ".config/nvim".source            = configs/nvim;
+    ".config/kitty".source           = configs/kitty;
+    ".config/ranger".source          = configs/ranger;
+    ".config/bash_git_prompt".source = configs/bash_git_prompt;
 
 
     # # You can also set the file content immediately.
