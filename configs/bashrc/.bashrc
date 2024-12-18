@@ -237,7 +237,7 @@ complete -o default -F __start_kubectl k
 complete -C ${HOME}/.gopath/bin/mc mc
 
 # User specific environment and startup programs
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
 
 # Yazi 
 function y() {
@@ -255,5 +255,28 @@ eval "$(direnv hook bash)"
 function hm() {
     echo 'Start Nix home-manager'
     nix run home-manager/release-24.05 -- init --switch
+}
+
+function hs() {
+    echo 'Switch Nix home-manager configuration'
+    home-manager switch
+
+}
+
+
+#pulp completion
+eval "$(LC_ALL=C _PULP_COMPLETE=bash_source pulp)"
+
+# minio client completion
+complete -C ${HOME}/.gopath/bin/mc mc
+
+# Yazi
+function y() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+        yazi "$@" --cwd-file="$tmp"
+        if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+                builtin cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
 }
 

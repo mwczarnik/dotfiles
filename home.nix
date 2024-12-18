@@ -21,11 +21,13 @@
   # environment.
   home.packages = [
     pkgs.kubectl
+    pkgs.kubectx
     pkgs.kubernetes-helm
     pkgs.stern
     pkgs.fluxcd
     pkgs.argocd
-    pkgs.terraform
+    pkgs.tfswitch
+    pkgs.tgswitch
     pkgs.packer
     pkgs.ansible
     pkgs.k9s
@@ -42,7 +44,14 @@
     pkgs.direnv
     pkgs.powerline-fonts
     pkgs.yazi
+    pkgs.rustup
+    #pkgs.sshuttle
+    pkgs.fzf
+    pkgs.minio-client
+    pkgs.bat
+    pkgs.lnav
     #pkgs.kitty
+    pkgs.fastfetch
 
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
 
@@ -74,7 +83,6 @@
     ".bashrc".source                 = configs/bashrc/.bashrc;
     ".inputrc".source                = configs/bashrc/.inputrc;
     ".tmux.conf".source              = configs/tmux/.tmux.conf;
-    ".tmuxline.conf".source          = configs/tmux/.tmuxline.conf;
     ".gitconfig".source              = configs/git/.gitconfig;
 
     ".config/yazi".source            = configs/yazi;
@@ -83,6 +91,25 @@
     ".config/ranger".source          = configs/ranger;
     ".config/bash_git_prompt".source = configs/bash_git_prompt;
 
+    ".kube-ps1".source = builtins.fetchGit {
+        url = "https://github.com/jonmosco/kube-ps1.git";
+        rev = "0391b238d903022dd78b40be4f2fb5bba96cc0f3";
+    };
+
+    ".local/share/nvim/site/autoload/plug.vim".source = builtins.fetchGit{
+        url = "https://github.com/junegunn/vim-plug.git";
+        rev = "d80f495fabff8446972b8695ba251ca636a047b0"; 
+    } + "/plug.vim";
+
+    ".bash-git-prompt".source = builtins.fetchGit {
+        url = "https://github.com/magicmonty/bash-git-prompt.git";
+        rev = "622e337d119adcdd5d4bee3ef15f8d81d4eea631";
+    };
+
+    ".tmux/plugins/tpm".source = builtins.fetchGit {
+        url = "https://github.com/tmux-plugins/tpm.git";
+        rev = "99469c4a9b1ccf77fade25842dc7bafbc8ce9946";
+    };
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
