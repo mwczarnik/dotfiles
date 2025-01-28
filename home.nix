@@ -35,7 +35,6 @@
     pkgs.git
     pkgs.unzip
     pkgs.neovim
-    pkgs.glances
     pkgs.wl-clipboard
     pkgs.fd
     pkgs.ripgrep
@@ -52,8 +51,14 @@
     pkgs.lnav
     #pkgs.kitty
     pkgs.fastfetch
+    pkgs.nerdctl
+    pkgs.httpie
+    pkgs.btop
+    pkgs.ghostty
+    pkgs.nerd-fonts.fira-code
 
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
+
+    #(pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.

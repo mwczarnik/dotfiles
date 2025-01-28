@@ -220,8 +220,7 @@ fi
 
 # Hashicorp
 complete -C /usr/local/bin/terraform terraform
-#complete -C /usr/bin/terraform terraform
-complete -C /usr/bin/packer packer
+complete -C  /home/user/.nix-profile/bin/packer packer
 
 #K8S
 #kubectl config set-cluster talos-vbox-cluster --insecure-skip-tls-verify=true
@@ -254,7 +253,7 @@ eval "$(direnv hook bash)"
 
 function hm() {
     echo 'Start Nix home-manager'
-    nix run home-manager/release-24.05 -- init --switch
+    nix run home-manager/release-24.11 -- init --switch
 }
 
 function hs() {
