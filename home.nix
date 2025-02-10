@@ -22,6 +22,7 @@
   home.packages = [
     pkgs.kubectl
     pkgs.kubectx
+    pkgs.krew
     pkgs.kubernetes-helm
     pkgs.stern
     pkgs.fluxcd
@@ -44,21 +45,21 @@
     pkgs.powerline-fonts
     pkgs.yazi
     pkgs.rustup
-    #pkgs.sshuttle
     pkgs.fzf
     pkgs.minio-client
     pkgs.bat
     pkgs.lnav
-    #pkgs.kitty
     pkgs.fastfetch
     pkgs.nerdctl
     pkgs.httpie
     pkgs.btop
     pkgs.ghostty
     pkgs.nerd-fonts.fira-code
+    pkgs.nerd-fonts.fira-mono
+    #pkgs.kitty
+    #pkgs.sshuttle
 
-
-    #(pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
+    #pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; }
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
