@@ -22,9 +22,13 @@
   home.packages = [
     pkgs.kubectl
     pkgs.kubectx
+    pkgs.kubent
+    pkgs.kor
     pkgs.krew
     pkgs.kubernetes-helm
+    pkgs.kubie
     pkgs.stern
+    pkgs.podman
     pkgs.fluxcd
     pkgs.argocd
     pkgs.tfswitch
@@ -56,6 +60,9 @@
     pkgs.ghostty
     pkgs.nerd-fonts.fira-code
     pkgs.nerd-fonts.fira-mono
+    pkgs.atuin
+    pkgs.blesh
+    pkgs.toolbox
     #pkgs.kitty
     #pkgs.sshuttle
 

@@ -228,12 +228,28 @@ source <(kubectl completion bash)
 source <(helm completion bash)
 source <(flux completion bash)
 source <(stern --completion bash)
+#source "$(blesh-share)/ble.sh"
 
 alias k=kubectl
 complete -o default -F __start_kubectl k
 
 # minio client completion
 complete -C ${HOME}/.gopath/bin/mc mc
+
+
+#Direnv config 
+eval "$(direnv hook bash)"
+
+#pulp completion
+eval "$(LC_ALL=C _PULP_COMPLETE=bash_source pulp)"
+
+# minio client completion
+complete -C ${HOME}/.gopath/bin/mc mc
+
+
+#Atuin
+#eval "$(atuin init bash --disable-up-arrow)"
+
 
 # User specific environment and startup programs
 #. "$HOME/.cargo/env"
@@ -248,8 +264,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-#Direnv config 
-eval "$(direnv hook bash)"
 
 function hm() {
     echo 'Start Nix home-manager'
@@ -261,13 +275,6 @@ function hs() {
     home-manager switch
 
 }
-
-
-#pulp completion
-eval "$(LC_ALL=C _PULP_COMPLETE=bash_source pulp)"
-
-# minio client completion
-complete -C ${HOME}/.gopath/bin/mc mc
 
 # Yazi
 function y() {
