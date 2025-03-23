@@ -61,6 +61,8 @@
     pkgs.nerd-fonts.fira-mono
     pkgs.atuin
     pkgs.blesh
+    pkgs.arping
+    pkgs.duplicacy
     #pkgs.toolbox
     #pkgs.kitty
     #pkgs.sshuttle

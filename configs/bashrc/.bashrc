@@ -149,7 +149,8 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo $$ $USER "$(history 
 # cli cluster prompt 
 source ${HOME}/.kube-ps1/kube-ps1.sh
 
-export PS1='\[\033[37m\]┏\[\033[01;92m\]⭘ ${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u \[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\[\033[01;00m\] \t $(kube_ps1) \n\[\033[37m\]┗\[\033[01;92m\]❱\[\033[00m\] '
+export PS1='\[\033[37m\]┏\[\033[01;92m\]⭘ ${debian_chroot:+($debian_chroot)}\[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\[\033[01;00m\] \t $(kube_ps1) \n\[\033[37m\]┗\[\033[01;92m\]❱\[\033[00m\] '
+#export PS1='\[\033[37m\]┏\[\033[01;92m\]⭘ ${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u \[\033[01;35m\][\[\033[01;33m\]\W\[\033[35m\]]\[\033[01;00m\] \t $(kube_ps1) \n\[\033[37m\]┗\[\033[01;92m\]❱\[\033[00m\] '
 
 export PATH=$PATH:/usr/sbin:/usr/local/bin/:$HOME/.local/bin:/usr/local/go/bin:/usr/local/bin/:${HOME}/.gopath/bin:${HOME}/.pixi/bin
 export VISUAL=nvim
@@ -285,4 +286,21 @@ function y() {
         fi
         rm -f -- "$tmp"
 }
+
+function proxy-start() {
+    bash /home/user/.ssh/sshuttle/jumphosts.sh
+    reset
+}
+
+function proxy-status() {
+    pgrep -a sshuttle
+}
+
+function proxy-kill() {
+    kill $(pgrep sshuttle)
+}
+
+
+
+
 
